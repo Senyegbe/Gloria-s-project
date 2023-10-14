@@ -5,8 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const calendarBody = document.getElementById("calendar-body");
 
     const currentDate = new Date();
-    let currentYear = currentDate.getFullYear();
+    const currentYear = currentDate.getFullYear();
     let currentMonth = currentDate.getMonth();
+    const currentDay = currentDate.getDate();
 
     function displayCalendar() {
         const firstDay = new Date(currentYear, currentMonth, 1);
@@ -25,7 +26,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (i === 0 && j < startingDay) {
                     html += "<td></td>";
                 } else if (day <= daysInMonth) {
-                    html += `<td>${day}</td>`;
+                    const cellId = `cell-${day}`;
+                    let classes = "";
+                    if (day === currentDay && currentMonth === currentDate.getMonth() && currentYear === currentDate.getFullYear()) {
+                        classes = "highlight";
+                    }
+                    if (day < 10) {
+                        classes += " single-digit";
+                    }
+                    html += `<td id="${cellId}" class="${classes}">${day}</td>`;
                     day++;
                 }
             }

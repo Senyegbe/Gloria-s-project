@@ -63,3 +63,14 @@ td {
 .next-month {
     color: #0077b6;
 }
+
+/* Highlight the current day */
+td.highlight {
+    background-color: #0077b6;
+    color: #fff;
+}
+
+/* Additional styles for a single-digit day */
+td.single-digit {
+    font-size: 1.2em;
+}
